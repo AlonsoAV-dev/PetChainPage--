@@ -280,35 +280,52 @@ main {
 }
 
 .map-body {
-  height: 140px;
+  height: 180px;
   border-radius: 16px;
-  background: radial-gradient(circle at 30% 40%, rgba(15, 139, 127, 0.2), transparent 60%),
-    #e6f5f2;
-  position: relative;
   overflow: hidden;
 }
 
-.map-pin {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--teal);
-  position: absolute;
+.leaflet-map {
+  width: 100%;
+  height: 100%;
 }
 
-.map-pin:nth-child(1) {
-  top: 30%;
-  left: 28%;
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: 'Manrope', sans-serif;
+  border-radius: 16px;
 }
 
-.map-pin:nth-child(2) {
-  top: 55%;
-  left: 52%;
+.petchain-marker {
+  background: transparent;
+  border: none;
+  color: var(--teal);
 }
 
-.map-pin:nth-child(3) {
-  top: 25%;
-  left: 70%;
+.petchain-marker__pin {
+  width: 36px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 6px 12px rgba(15, 139, 127, 0.35));
+}
+
+.petchain-marker__pin svg {
+  width: 100%;
+  height: 100%;
+}
+
+.petchain-marker--perdida {
+  color: #e2554f;
+}
+
+.petchain-marker--campana {
+  color: #f4a83a;
+}
+
+.petchain-marker--encuentro {
+  color: #2b7fd9;
 }
 
 .progress {

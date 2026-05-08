@@ -1,5 +1,36 @@
 import { useEffect } from 'react'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet'
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
+import markerIcon from 'leaflet/dist/images/marker-icon.png'
+import markerShadow from 'leaflet/dist/images/marker-shadow.png'
+import 'leaflet/dist/leaflet.css'
 import './App.css'
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+})
+
+const createPetChainMarker = (type) =>
+  L.divIcon({
+    className: `petchain-marker petchain-marker--${type}`,
+    html: `
+      <div class="petchain-marker__pin">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2c-3.9 0-7 3.1-7 7 0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"
+            fill="currentColor"
+          />
+          <circle cx="12" cy="9" r="3" fill="white" />
+        </svg>
+      </div>
+    `,
+    iconSize: [36, 44],
+    iconAnchor: [18, 42],
+    popupAnchor: [0, -38],
+  })
 
 function App() {
   useEffect(() => {
@@ -157,6 +188,27 @@ function App() {
     },
   ]
 
+  const mapPoints = [
+    {
+      name: 'Miraflores',
+      detail: 'Reporte activo: mascota perdida',
+      position: [-12.121, -77.0297],
+      type: 'perdida',
+    },
+    {
+      name: 'Barranco',
+      detail: 'Campana educativa en curso',
+      position: [-12.1433, -77.0202],
+      type: 'campana',
+    },
+    {
+      name: 'San Isidro',
+      detail: 'Punto de encuentro comunitario',
+      position: [-12.098, -77.0377],
+      type: 'encuentro',
+    },
+  ]
+
   return (
     <div className="page">
       <header className="navbar">
@@ -226,9 +278,31 @@ function App() {
                       <span className="map-pill">3 alertas</span>
                     </div>
                     <div className="map-body">
-                      <div className="map-pin" />
-                      <div className="map-pin" />
-                      <div className="map-pin" />
+                      <MapContainer
+                        center={[-12.121, -77.0297]}
+                        zoom={12}
+                        scrollWheelZoom={false}
+                        className="leaflet-map"
+                        aria-label="Mapa comunitario"
+                      >
+                        <TileLayer
+                          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                          attribution="&copy; OpenStreetMap contributors"
+                        />
+                        {mapPoints.map((point) => (
+                          <Marker
+                            key={point.name}
+                            position={point.position}
+                            icon={createPetChainMarker(point.type)}
+                          >
+                            <Popup>
+                              <strong>{point.name}</strong>
+                              <br />
+                              {point.detail}
+                            </Popup>
+                          </Marker>
+                        ))}
+                      </MapContainer>
                     </div>
                   </div>
                   <div className="mockup-card highlight">
