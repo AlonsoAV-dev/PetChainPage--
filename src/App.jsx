@@ -519,7 +519,9 @@ function App() {
         <section className="section cta" id="contacto">
           <div className="container cta-inner" data-animate>
             <div>
-              <span className="eyebrow">Comunidad PetChain</span>
+              <span className="comunidadColor" id="comunidadColor">
+                Comunidad PetChain
+              </span>
               <h2>
                 Forma parte de una comunidad que protege y cuida a las mascotas.
               </h2>
