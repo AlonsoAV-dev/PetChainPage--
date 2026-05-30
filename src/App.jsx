@@ -224,9 +224,14 @@ function App() {
               </a>
             ))}
           </nav>
-          <a className="button primary" href="/login">
-            Ingresar al sistema
-          </a>
+            <a
+              className="button primary"
+              href="https://sistema-pet-chain.vercel.app/login"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ingresar al sistema
+            </a>
         </div>
       </header>
 
