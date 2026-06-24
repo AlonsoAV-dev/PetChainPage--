@@ -95,16 +95,16 @@ function App() {
   const aboutCards = [
     {
       title: 'Tenencia responsable',
-      text: 'Guia practica para cuidar la salud, alimentacion y bienestar emocional.',
+      text: 'Guía práctica para cuidar la salud, alimentación y bienestar emocional.',
       icon: 'shield',
     },
     {
       title: 'Mascotas perdidas',
-      text: 'Alertas rapidas con mapa comunitario y difusion instantanea.',
+      text: 'Alertas rápidas con mapa comunitario y difusión instantánea.',
       icon: 'search',
     },
     {
-      title: 'Adopcion consciente',
+      title: 'Adopción consciente',
       text: 'Conecta hogares responsables con mascotas que necesitan amor.',
       icon: 'heart',
     },
@@ -117,13 +117,13 @@ function App() {
 
   const features = [
     {
-      title: 'Publicacion de mascotas perdidas',
-      text: 'Crea alertas con fotos, ubicacion y contacto directo con la comunidad.',
+      title: 'Publicación de mascotas perdidas',
+      text: 'Crea alertas con fotos, ubicación y contacto directo con la comunidad.',
       tag: 'Alerta inmediata',
     },
     {
       title: 'Contenido educativo curado',
-      text: 'Microcursos, guias y talleres con expertos en bienestar animal.',
+      text: 'Microcursos, guías y talleres con expertos en bienestar animal.',
       tag: 'Aprendizaje continuo',
     },
     {
@@ -133,7 +133,7 @@ function App() {
     },
     {
       title: 'Experiencia mobile-first',
-      text: 'Acceso rapido desde cualquier dispositivo para actuar a tiempo.',
+      text: 'Acceso rápido desde cualquier dispositivo para actuar a tiempo.',
       tag: 'Siempre disponible',
     },
     {
@@ -142,41 +142,49 @@ function App() {
       tag: 'Impacto local',
     },
     {
-      title: 'Difusion por Instagram',
-      text: 'Integra publicaciones sociales para alcanzar mas personas.',
-      tag: 'Amplificacion',
+      title: 'Difusión por Instagram',
+      text: 'Integra publicaciones sociales para alcanzar más personas.',
+      tag: 'Amplificación',
     },
   ]
 
   const workshops = [
     {
       title: 'Talleres educativos',
-      text: 'Charlas sobre salud, nutricion y cuidados preventivos.',
+      text: 'Charlas sobre salud, nutrición y cuidados preventivos.',
+      image: '/images/workshop-education.webp',
+      alt: 'Taller educativo de cuidado responsable para mascotas.',
     },
     {
-      title: 'Campañas de adopcion',
+      title: 'Campañas de adopción',
       text: 'Jornadas solidarias para encontrar hogares responsables.',
+      image: '/images/adoption-campaign.webp',
+      alt: 'Campaña de adopción responsable con voluntarios y mascotas.',
     },
     {
-      title: 'Concientizacion comunitaria',
+      title: 'Concientización comunitaria',
       text: 'Activaciones barriales y alianzas con refugios locales.',
+      image: '/images/community-awareness.webp',
+      alt: 'Actividad comunitaria de concientizacion sobre bienestar animal.',
     },
     {
       title: 'Actividades universitarias',
       text: 'Proyectos con estudiantes y voluntariado interdisciplinario.',
+      image: '/images/university-volunteers.webp',
+      alt: 'Estudiantes universitarios voluntarios participando en PetChain.',
     },
   ]
 
   const testimonials = [
     {
       quote:
-        'PetChain me dio recursos claros para mejorar la salud de mi perrita y sentirme acompanada.',
+        'PetChain me dio recursos claros para mejorar la salud de mi perrita y sentirme acompañada.',
       name: 'Ana Ruiz',
-      role: 'Duenia de mascota',
+      role: 'Dueña de mascota',
     },
     {
       quote:
-        'La plataforma nos ayudo a coordinar campañas de adopcion con la comunidad universitaria.',
+        'La plataforma nos ayudó a coordinar campañas de adopción con la comunidad universitaria.',
       name: 'Mario Torres',
       role: 'Estudiante voluntario',
     },
@@ -197,7 +205,7 @@ function App() {
     },
     {
       name: 'Barranco',
-      detail: 'Campana educativa en curso',
+      detail: 'Campaña educativa en curso',
       position: [-12.1433, -77.0202],
       type: 'campana',
     },
@@ -214,8 +222,8 @@ function App() {
       <header className="navbar">
         <div className="container nav-inner">
           <a className="logo" href="#inicio" aria-label="PetChain">
-            <span className="logo-mark" />
-            PetChain
+            <img className="logo-image" src="/logo-petchain.png" alt="" />
+            <span>PetChain</span>
           </a>
           <nav className="nav-links" aria-label="Navegacion principal">
             {navLinks.map((link) => (
@@ -242,7 +250,7 @@ function App() {
               <span className="badge">Plataforma educativa + comunitaria</span>
               <h1>La plataforma que conecta el cuidado responsable de mascotas</h1>
               <p className="lead">
-                Educacion, adopcion y comunidad en un solo lugar.
+                Educación, adopción y comunidad en un solo lugar.
               </p>
               <div className="hero-actions">
                 <a className="button primary" href="#funcionalidades">
@@ -263,12 +271,19 @@ function App() {
                 </div>
                 <div>
                   <span className="stat">+15</span>
-                  <span>asistentes en campanas</span>
+                  <span>asistentes en campañas</span>
                 </div>
               </div>
             </div>
 
             <div className="hero-visual" data-animate>
+              <div className="hero-photo-frame">
+                <img
+                  src="/images/hero-community.webp"
+                  alt="Comunidad PetChain cuidando mascotas con apoyo de tecnología."
+                  fetchPriority="high"
+                />
+              </div>
               <div className="mockup">
                 <div className="mockup-header">
                   <div className="pill">Dashboard PetChain</div>
@@ -311,7 +326,7 @@ function App() {
                     </div>
                   </div>
                   <div className="mockup-card highlight">
-                    <h3>Campana activa</h3>
+                    <h3>Campaña activa</h3>
                     <p>Adopta con responsabilidad - mayo 2026</p>
                     <div className="progress">
                       <div className="progress-bar" />
@@ -325,7 +340,7 @@ function App() {
                           <span className="pet-avatar" aria-hidden="true" />
                           <div>
                             <strong>{pet}</strong>
-                            <span>Listo para adopcion</span>
+                            <span>Listo para adopción</span>
                           </div>
                         </div>
                       ))}
@@ -357,10 +372,10 @@ function App() {
         <section id="beneficios" className="section">
           <div className="container">
             <div className="section-head" data-animate>
-              <span className="eyebrow">Que es PetChain</span>
+              <span className="eyebrow">Qué es PetChain</span>
               <h2>Una red responsable para educar, proteger y conectar</h2>
               <p>
-                Unimos tecnologia y comunidad para crear entornos seguros para
+                Unimos tecnología y comunidad para crear entornos seguros para
                 mascotas y personas.
               </p>
             </div>
@@ -384,7 +399,7 @@ function App() {
               <span className="eyebrow">Funcionalidades</span>
               <h2>Todo lo que necesitas para impulsar impacto real</h2>
               <p>
-                Herramientas disenadas para educar, movilizar y mantener a la
+                Herramientas diseñadas para educar, movilizar y mantener a la
                 comunidad informada.
               </p>
             </div>
@@ -449,7 +464,7 @@ function App() {
               <span className="eyebrow">ODS</span>
               <h2>Compromiso con los objetivos globales</h2>
               <p>
-                PetChain impulsa bienestar, prevencion y ciudades mas amables.
+                PetChain impulsa bienestar, prevención y ciudades más amables.
               </p>
             </div>
             <div className="ods-grid">
@@ -458,7 +473,7 @@ function App() {
                 <div>
                   <h3>Salud y bienestar</h3>
                   <p>
-                    Promovemos habitos saludables y prevencion para mascotas y
+                    Promovemos hábitos saludables y prevención para mascotas y
                     familias.
                   </p>
                 </div>
@@ -479,7 +494,7 @@ function App() {
         <section id="comunidad" className="section alt">
           <div className="container">
             <div className="section-head" data-animate>
-              <span className="eyebrow">Talleres y campanas</span>
+              <span className="eyebrow">Talleres y campañas</span>
               <h2>Activamos experiencias que transforman</h2>
               <p>
                 Espacios formativos y acciones colectivas para fortalecer la
@@ -489,7 +504,12 @@ function App() {
             <div className="gallery-grid">
               {workshops.map((item, index) => (
                 <article key={item.title} className="gallery-card" data-animate>
-                  <div className={`gallery-visual variant-${index + 1}`} />
+                  <img
+                    className="gallery-image"
+                    src={item.image}
+                    alt={item.alt}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -546,8 +566,8 @@ function App() {
         <div className="container footer-grid">
           <div>
             <a className="logo" href="#inicio">
-              <span className="logo-mark" />
-              PetChain
+              <img className="logo-image footer-logo-image" src="/logo-petchain.png" alt="" />
+              <span>PetChain</span>
             </a>
             <p>
               Plataforma educativa y comunitaria para la tenencia responsable de
@@ -555,7 +575,7 @@ function App() {
             </p>
           </div>
           <div className="footer-links">
-            <span>Links rapidos</span>
+            <span>Links rápidos</span>
             {navLinks.map((link) => (
               <a key={link.href} href={link.href}>
                 {link.label}
