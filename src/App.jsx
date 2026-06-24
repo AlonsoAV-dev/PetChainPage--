@@ -590,8 +590,8 @@ function App() {
           </div>
           <div className="footer-links">
             <span>Contacto</span>
-            <a href="mailto:contacto@petchain.org">contacto@petchain.org</a>
-            <span>Proyecto universitario 2026</span>
+            <a href="mailto:20223087@aloe.ulima.edu.pe">20223087@aloe.ulima.edu.pe</a>
+            <span>PetChain Proyecto 2026</span>
           </div>
         </div>
       </footer>
