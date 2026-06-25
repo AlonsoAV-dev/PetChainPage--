@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
@@ -33,6 +33,8 @@ const createPetChainMarker = (type) =>
   })
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   useEffect(() => {
     const revealItems = document.querySelectorAll('[data-animate]')
     const counterItems = document.querySelectorAll('[data-count]')
@@ -91,6 +93,8 @@ function App() {
     { href: '#comunidad', label: 'Comunidad' },
     { href: '#contacto', label: 'Contacto' },
   ]
+
+  const closeMenu = () => setIsMenuOpen(false)
 
   const aboutCards = [
     {
@@ -225,21 +229,39 @@ function App() {
             <img className="logo-image" src="/logo-petchain.png" alt="" />
             <span>PetChain</span>
           </a>
-          <nav className="nav-links" aria-label="Navegacion principal">
-            {navLinks.map((link) => (
-              <a key={link.href} href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </nav>
-            <a
-              className="button primary"
-              href="https://sistema-pet-chain.vercel.app/login"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ingresar al sistema
-            </a>
+          <div
+            className={`nav-menu ${isMenuOpen ? 'is-open' : ''}`}
+            id="primary-navigation"
+          >
+            <nav className="nav-links" aria-label="Navegacion principal">
+              {navLinks.map((link) => (
+                <a key={link.href} href={link.href} onClick={closeMenu}>
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+          <a
+            className="button primary nav-cta"
+            href="https://sistema-pet-chain.vercel.app/login"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Ingresar</span>
+            <span className="nav-cta-extra"> al sistema</span>
+          </a>
+          <button
+            className={`menu-toggle ${isMenuOpen ? 'is-open' : ''}`}
+            type="button"
+            aria-label={isMenuOpen ? 'Cerrar menu' : 'Abrir menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="primary-navigation"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </div>
       </header>
 
